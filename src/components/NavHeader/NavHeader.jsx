@@ -1,17 +1,35 @@
+import { useContext } from "react";
 import { IoMoon } from "react-icons/io5";
+import { IoSunny } from "react-icons/io5";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export const NavHeader = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
-    <header className="bg-[blue] text-[20px] w-full">
+    <header className=" w-full md:w-[85%] lg:w-[70%] ">
       <nav className="flex justify-between">
         <div>
-          <h1>devFinder</h1>
+          <h1
+            className={`text-lg font-bold text-${
+              theme === "light" ? "dk-dark-gun-metal" : "dk-white"
+            }`}
+          >
+            devFinder
+          </h1>
         </div>
-        <div className="flex justify-center items-center gap-2">
-          <span>Dark</span>
-          <span>
-            <IoMoon />
-          </span>
+        <div onClick={toggleTheme} className="cursor-pointer">
+          {theme === "light" ? (
+            <span className="flex justify-center items-center gap-2  text-lt-queen-blue">
+              Dark
+              <IoMoon />
+            </span>
+          ) : (
+            <span className="flex justify-center items-center gap-2 text-dk-white">
+              Light
+              <IoSunny />
+            </span>
+          )}
         </div>
       </nav>
     </header>

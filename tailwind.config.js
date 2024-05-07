@@ -13,6 +13,7 @@ export default {
       "dk-white": "#ffffff",
       "dk-dark-gun-metal": "#141d2f",
       "dk-yankees-blue": "#1e2a47",
+      "dk-tart-orange": "#f74646",
     },
     extend: {},
     fontFamily: {
