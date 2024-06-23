@@ -12,7 +12,7 @@ export const NavHeader = () => {
         <div>
           <h1
             className={`text-lg font-bold text-${
-              theme === "light" ? "dk-dark-gun-metal" : "dk-white"
+              theme === "light" ? "dark-gun-metal" : "white"
             }`}
           >
             devFinder
@@ -20,12 +20,12 @@ export const NavHeader = () => {
         </div>
         <div onClick={toggleTheme} className="cursor-pointer">
           {theme === "light" ? (
-            <span className="flex justify-center items-center gap-2  text-lt-queen-blue">
+            <span className="flex justify-center items-center gap-2  text-queen-blue">
               Dark
               <IoMoon />
             </span>
           ) : (
-            <span className="flex justify-center items-center gap-2 text-dk-white">
+            <span className="flex justify-center items-center gap-2 text-white">
               Light
               <IoSunny />
             </span>
