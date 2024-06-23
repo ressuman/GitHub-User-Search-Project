@@ -1,18 +1,28 @@
 import { useContext, useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import { ThemeContext } from "../../context/ThemeContext";
+import { UserContext } from "../../context/apiContext/UserContext";
+import { getUser } from "../../context/apiContext/ApiActions";
 
 export default function SearchBar() {
   const { theme } = useContext(ThemeContext);
+  const { userData, updateData } = useContext(UserContext);
 
   const [searchData, setSearchData] = useState("");
 
-  const handleSubmit = () => {
+  const handleInput = (e) => {
+    setSearchData(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (searchData === "") {
       alert("Enter Git Username");
-    } else {searchUser(searchData)
+    } else {
+      await getUser(searchData)
+        .then((result) => updateData(result))
+        .finally(() => console.log(userData));
     }
   };
 
@@ -29,7 +39,7 @@ export default function SearchBar() {
           type="search"
           name="userName"
           value={searchData}
-          onChange={}
+          onChange={handleInput}
           id="userName"
           className={`w-full  border-0 ${
             theme === "light"
