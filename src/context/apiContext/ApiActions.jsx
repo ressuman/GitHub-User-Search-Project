@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// const token = import.meta.env.VITE_ACCESS_TOKEN
 const url = import.meta.env.VITE_REACT_GITHUB_USER_ACCESS_API_URL;
 
 export const getUser = async (username) => {
